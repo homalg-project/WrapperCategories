@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (WrapperCategories) - Chapter 1: Wrapper categories</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap1"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap1_mj.html">[MathJax on]</a></p>
+<p><a id="X79D4B34F7CAB2603" name="X79D4B34F7CAB2603"></a></p>
+<div class="ChapSects"><a href="chap1.html#X79D4B34F7CAB2603">1 <span class="Heading">Wrapper categories</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X7A489A5D79DA9E5C">1.1 <span class="Heading">Examples</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7F72E2C57B0E4800">1.1-1 <span class="Heading">Snake Lemma</span></a>
+</span>
+</div></div>
+</div>
+
+<h3>1 <span class="Heading">Wrapper categories</span></h3>
+
+<p><a id="X7A489A5D79DA9E5C" name="X7A489A5D79DA9E5C"></a></p>
+
+<h4>1.1 <span class="Heading">Examples</span></h4>
+
+<p><a id="X7F72E2C57B0E4800" name="X7F72E2C57B0E4800"></a></p>
+
+<h5>1.1-1 <span class="Heading">Snake Lemma</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "LinearAlgebraForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "GeneralizedMorphismsForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SwitchGeneralizedMorphismStandard( "cospan" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := HomalgFieldOfRationals( );</span>
+Q
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := HomalgIdentityMatrix( 8, Q );</span>
+&lt;An unevaluated 8 x 8 identity matrix over an internal ring&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := CertainColumns( CertainRows( id, [ 1, 2, 3 ] ), [ 2, 3, 4, 5 ] );</span>
+&lt;An unevaluated non-zero 3 x 4 matrix over an internal ring&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b := CertainColumns( CertainRows( id, [ 1, 2, 3, 4 ] ), [ 2, 3, 4, 5, 6 ] );</span>
+&lt;An unevaluated non-zero 4 x 5 matrix over an internal ring&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := CertainColumns( CertainRows( id, [ 1, 2, 3, 4, 5 ] ), [ 3, 4, 5, 6, 7, 8 ] );</span>
+&lt;An unevaluated non-zero 5 x 6 matrix over an internal ring&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZero( a * b );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZero( b * c );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZero( a * b * c );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Qmat := MatrixCategory( Q );</span>
+Category of matrices over Q
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper := WrapperCategory( Qmat );</span>
+WrapperCategory( Category of matrices over Q )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := a / Wrapper;</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b := b / Wrapper;</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := c / Wrapper;</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">d := CokernelProjection( a );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e := CokernelColift( a, PreCompose( b, c ) );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := KernelEmbedding( e );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := KernelEmbedding( c );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := KernelLift( c, PreCompose( a, b ) );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">i := CokernelProjection( h );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ff := AsGeneralizedMorphism( f );</span>
+&lt;A morphism in Generalized morphism category of
+ WrapperCategory( Category of matrices over Q ) by cospan&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">dd := AsGeneralizedMorphism( d );</span>
+&lt;A morphism in Generalized morphism category of
+ WrapperCategory( Category of matrices over Q ) by cospan&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bb := AsGeneralizedMorphism( b );</span>
+&lt;A morphism in Generalized morphism category of
+ WrapperCategory( Category of matrices over Q ) by cospan&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gg := AsGeneralizedMorphism( g );</span>
+&lt;A morphism in Generalized morphism category of
+ WrapperCategory( Category of matrices over Q ) by cospan&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ii := AsGeneralizedMorphism( i );</span>
+&lt;A morphism in Generalized morphism category of
+ WrapperCategory( Category of matrices over Q ) by cospan&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ss := PreCompose( [ ff, PseudoInverse( dd ), bb, PseudoInverse( gg ), ii ] );</span>
+&lt;A morphism in Generalized morphism category of
+ WrapperCategory( Category of matrices over Q ) by cospan&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := HonestRepresentative( ss );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">j := KernelObjectFunctorial( b, d, e );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := CokernelObjectFunctorial( h, g, b );</span>
+&lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HK := HomologyObject( j, s );</span>
+&lt;An object in WrapperCategory( Category of matrices over Q )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HC := HomologyObject( s, k );</span>
+&lt;An object in WrapperCategory( Category of matrices over Q )&gt;
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>
