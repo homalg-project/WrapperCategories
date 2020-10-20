@@ -11,14 +11,14 @@ SetPackageInfo( rec(
 PackageName := "WrapperCategories",
 Subtitle := "Construct an equivalent wrapper category out of a CAP category",
 Version := Maximum( [
-                   "2020.10-02", ## Mohamed's version
+                   "2020.10-04", ## Mohamed's version
                    ## this line prevents merge conflicts
                    "2020.08.16", ## Fabian's version
                    ## this line prevents merge conflicts
                    ] ),
 
-Date := "18/10/2020",
-Date := "18/10/2020",
+Date := "19/10/2020",
+Date := "19/10/2020",
 License := "GPL-2.0-or-later",
 
 Persons := [

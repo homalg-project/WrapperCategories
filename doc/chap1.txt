@@ -40,17 +40,17 @@
     [4X[25Xgap>[125X [27Xc := c / Wrapper;[127X[104X
     [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xd := CokernelProjection( a );[127X[104X
-    [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
+    [4X[28X<An epimorphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xe := CokernelColift( a, PreCompose( b, c ) );[127X[104X
     [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xf := KernelEmbedding( e );[127X[104X
-    [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
+    [4X[28X<A monomorphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xg := KernelEmbedding( c );[127X[104X
-    [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
+    [4X[28X<A monomorphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xh := KernelLift( c, PreCompose( a, b ) );[127X[104X
     [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xi := CokernelProjection( h );[127X[104X
-    [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
+    [4X[28X<An epi morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
     [4X[25Xgap>[125X [27Xff := AsGeneralizedMorphism( f );[127X[104X
     [4X[28X<A morphism in Generalized morphism category of[128X[104X
     [4X[28X WrapperCategory( Category of matrices over Q ) by cospan>[128X[104X
