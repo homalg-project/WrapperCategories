@@ -28,6 +28,12 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7F72E2C57B0E4800">1.1-1 <span class="Heading">Snake Lemma</span></a>
 </span>
 </div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X78D1062D78BE08C1">1.2 <span class="Heading">Functors</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X7A810CDA83F2897F">1.3 <span class="Heading">Tests</span></a>
+</span>
+</div>
 </div>
 
 <h3>1 <span class="Heading">Wrapper categories</span></h3>
@@ -113,6 +119,49 @@ WrapperCategory( Category of matrices over Q )
 &lt;An object in WrapperCategory( Category of matrices over Q )&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HC := HomologyObject( s, k );</span>
 &lt;An object in WrapperCategory( Category of matrices over Q )&gt;
+</pre></div>
+
+<p><a id="X78D1062D78BE08C1" name="X78D1062D78BE08C1"></a></p>
+
+<h4>1.2 <span class="Heading">Functors</span></h4>
+
+<p><a id="X7A810CDA83F2897F" name="X7A810CDA83F2897F"></a></p>
+
+<h4>1.3 <span class="Heading">Tests</span></h4>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "WrapperCategories", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "LinearAlgebraForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := HomalgFieldOfRationals( );</span>
+Q
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Qmat := MatrixCategory( Q );</span>
+Category of matrices over Q
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper := WrapperCategory( Qmat );</span>
+WrapperCategory( Category of matrices over Q )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor := ZeroMorphism( ZeroObject( Wrapper ), ZeroObject( Wrapper ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">2 * mor;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BasisOfExternalHom( Source( mor ), Range( mor ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientsOfMorphism( mor );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistinguishedObjectOfHomomorphismStructure( Wrapper );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HomomorphismStructureOnObjects( Source( mor ), Source( mor ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HomomorphismStructureOnMorphisms( mor, mor );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure( mor );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">beta := InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism( Source( mor ), Range( mor ), iota );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCongruentForMorphisms( mor, beta );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper2 := WrapperCategory( Qmat : wrap_range_of_hom_structure := false );</span>
+WrapperCategory( Category of matrices over Q )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor := ZeroMorphism( ZeroObject( Wrapper2 ), ZeroObject( Wrapper2 ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistinguishedObjectOfHomomorphismStructure( Wrapper2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HomomorphismStructureOnObjects( Source( mor ), Source( mor ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HomomorphismStructureOnMorphisms( mor, mor );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure( mor );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">beta := InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism( Source( mor ), Range( mor ), iota );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCongruentForMorphisms( mor, beta );</span>
+true
 </pre></div>
 
 
