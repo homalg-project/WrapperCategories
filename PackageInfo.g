@@ -10,9 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "WrapperCategories",
 Subtitle := "Construct an equivalent wrapper category out of a CAP category",
-Version := "2021.08-01",
-Date := "30/08/2021",
-Date := "30/08/2021",
+Version := "2021.08-02",
+Date := "31/08/2021",
+Date := "31/08/2021",
 License := "GPL-2.0-or-later",
 
 Persons := [
