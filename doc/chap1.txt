@@ -121,3 +121,115 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "WrapperCategories", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FreydCategoriesForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XQQ := HomalgFieldOfRationals( );;[127X[104X
+    [4X[25Xgap>[125X [27X# we have to work hard to not write semicolons so AutoDoc[127X[104X
+    [4X[25X>[125X [27X# does not begin a new statement[127X[104X
+    [4X[25X>[125X [27Xcategory_constructor := EvalString( ReplacedString( """function( field )[127X[104X
+    [4X[25X>[125X [27X  local matrix_category, op, object_constructor, object_datum, morphism_constructor, morphism_datum, wrapper@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    matrix_category := CategoryOfRows( field : FinalizeCategory := true, enable_compilation := false )@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    op := Opposite( matrix_category : FinalizeCategory := true, enable_compilation := false, only_primitive_operations := true )@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    ##[127X[104X
+    [4X[25X>[125X [27X    object_constructor := function( cat, underlying_object )[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        return ObjectifyObjectForCAPWithAttributes( rec( ), cat,[127X[104X
+    [4X[25X>[125X [27X                                                    RankOfObject, RankOfObject( Opposite( underlying_object ) ) )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X    end@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    ##[127X[104X
+    [4X[25X>[125X [27X    object_datum := function( cat, obj )[127X[104X
+    [4X[25X>[125X [27X      local op, matrix_category@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        op := UnderlyingCategory( cat )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        matrix_category := Opposite( op )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        return ObjectConstructor( op, CategoryOfRowsObject( matrix_category, RankOfObject( obj ) ) )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X    end@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    ##[127X[104X
+    [4X[25X>[125X [27X    morphism_constructor := function( cat, source, underlying_morphism, range )[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec( ), cat,[127X[104X
+    [4X[25X>[125X [27X                source,[127X[104X
+    [4X[25X>[125X [27X                range,[127X[104X
+    [4X[25X>[125X [27X                UnderlyingMatrix, UnderlyingMatrix( Opposite( underlying_morphism ) ) )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X    end@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    ##[127X[104X
+    [4X[25X>[125X [27X    morphism_datum := function( cat, mor )[127X[104X
+    [4X[25X>[125X [27X      local op, matrix_category, matrix_morphism@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        op := UnderlyingCategory( cat )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        matrix_category := Opposite( op )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        matrix_morphism := CategoryOfRowsMorphism([127X[104X
+    [4X[25X>[125X [27X            matrix_category,[127X[104X
+    [4X[25X>[125X [27X            CategoryOfRowsObject( matrix_category, RankOfObject( Range( mor ) ) ),[127X[104X
+    [4X[25X>[125X [27X            UnderlyingMatrix( mor ),[127X[104X
+    [4X[25X>[125X [27X            CategoryOfRowsObject( matrix_category, RankOfObject( Source( mor ) ) )[127X[104X
+    [4X[25X>[125X [27X        )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X        return MorphismConstructor([127X[104X
+    [4X[25X>[125X [27X            op,[127X[104X
+    [4X[25X>[125X [27X            ObjectConstructor( op, Range( matrix_morphism ) ),[127X[104X
+    [4X[25X>[125X [27X            matrix_morphism, [127X[104X
+    [4X[25X>[125X [27X            ObjectConstructor( op, Source( matrix_morphism ) )[127X[104X
+    [4X[25X>[125X [27X        )@[127X[104X
+    [4X[25X>[125X [27X        [127X[104X
+    [4X[25X>[125X [27X    end@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    wrapper := WrapperCategory( op :[127X[104X
+    [4X[25X>[125X [27X        name := "Columns( Q )",[127X[104X
+    [4X[25X>[125X [27X        primitive_operations := true,[127X[104X
+    [4X[25X>[125X [27X        wrap_range_of_hom_structure := false,[127X[104X
+    [4X[25X>[125X [27X        object_constructor := object_constructor,[127X[104X
+    [4X[25X>[125X [27X        object_datum := object_datum,[127X[104X
+    [4X[25X>[125X [27X        morphism_constructor := morphism_constructor,[127X[104X
+    [4X[25X>[125X [27X        morphism_datum := morphism_datum[127X[104X
+    [4X[25X>[125X [27X    )@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    SetUnderlyingRing( wrapper, field )@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    Add( wrapper!.compiler_hints.category_attribute_names, "UnderlyingRing" )@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    wrapper!.compiler_hints.source_and_range_attributes_from_morphism_attribute := rec([127X[104X
+    [4X[25X>[125X [27X        object_attribute_name := "RankOfObject",[127X[104X
+    [4X[25X>[125X [27X        morphism_attribute_name := "UnderlyingMatrix",[127X[104X
+    [4X[25X>[125X [27X        source_attribute_getter_name := "NrColumns",[127X[104X
+    [4X[25X>[125X [27X        range_attribute_getter_name := "NrRows",[127X[104X
+    [4X[25X>[125X [27X    )@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27X    return wrapper@[127X[104X
+    [4X[25X>[125X [27X    [127X[104X
+    [4X[25X>[125X [27Xend""", "@", ";" ) );;[127X[104X
+    [4X[25Xgap>[125X [27Xgiven_arguments := [ QQ ];;[127X[104X
+    [4X[25Xgap>[125X [27Xcompiled_category_name := "WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled";;[127X[104X
+    [4X[25Xgap>[125X [27Xpackage_name := "WrapperCategories";;[127X[104X
+    [4X[25Xgap>[125X [27Xoperations := "primitive";;[127X[104X
+    [4X[25Xgap>[125X [27XCapJitPrecompileCategoryAndCompareResult([127X[104X
+    [4X[25X>[125X [27X    category_constructor,[127X[104X
+    [4X[25X>[125X [27X    given_arguments,[127X[104X
+    [4X[25X>[125X [27X    package_name,[127X[104X
+    [4X[25X>[125X [27X    compiled_category_name :[127X[104X
+    [4X[25X>[125X [27X    operations := operations[127X[104X
+    [4X[25X>[125X [27X);[127X[104X
+    [4X[25Xgap>[125X [27XReadPackage([127X[104X
+    [4X[25X>[125X [27X    "WrapperCategories",[127X[104X
+    [4X[25X>[125X [27X    "gap/precompiled_categories/WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled.gi"[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XWrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled( QQ );[127X[104X
+    [4X[28XColumns( Q )[128X[104X
+  [4X[32X[104X
+  

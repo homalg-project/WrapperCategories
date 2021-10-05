@@ -165,6 +165,119 @@ true
 </pre></div>
 
 
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "WrapperCategories", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FreydCategoriesForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">QQ := HomalgFieldOfRationals( );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># we have to work hard to not write semicolons so AutoDoc</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput"># does not begin a new statement</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">category_constructor := EvalString( ReplacedString( """function( field )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  local matrix_category, op, object_constructor, object_datum, morphism_constructor, morphism_datum, wrapper@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    matrix_category := CategoryOfRows( field : FinalizeCategory := true, enable_compilation := false )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    op := Opposite( matrix_category : FinalizeCategory := true, enable_compilation := false, only_primitive_operations := true )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ##</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    object_constructor := function( cat, underlying_object )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        return ObjectifyObjectForCAPWithAttributes( rec( ), cat,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                                                    RankOfObject, RankOfObject( Opposite( underlying_object ) ) )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    end@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ##</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    object_datum := function( cat, obj )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      local op, matrix_category@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        op := UnderlyingCategory( cat )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        matrix_category := Opposite( op )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        return ObjectConstructor( op, CategoryOfRowsObject( matrix_category, RankOfObject( obj ) ) )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    end@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ##</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    morphism_constructor := function( cat, source, underlying_morphism, range )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec( ), cat,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                source,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                range,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                UnderlyingMatrix, UnderlyingMatrix( Opposite( underlying_morphism ) ) )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    end@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ##</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    morphism_datum := function( cat, mor )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      local op, matrix_category, matrix_morphism@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        op := UnderlyingCategory( cat )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        matrix_category := Opposite( op )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        matrix_morphism := CategoryOfRowsMorphism(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            matrix_category,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            CategoryOfRowsObject( matrix_category, RankOfObject( Range( mor ) ) ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            UnderlyingMatrix( mor ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            CategoryOfRowsObject( matrix_category, RankOfObject( Source( mor ) ) )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        return MorphismConstructor(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            op,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            ObjectConstructor( op, Range( matrix_morphism ) ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            matrix_morphism, </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            ObjectConstructor( op, Source( matrix_morphism ) )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    end@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    wrapper := WrapperCategory( op :</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        name := "Columns( Q )",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        primitive_operations := true,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        wrap_range_of_hom_structure := false,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        object_constructor := object_constructor,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        object_datum := object_datum,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        morphism_constructor := morphism_constructor,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        morphism_datum := morphism_datum</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    SetUnderlyingRing( wrapper, field )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    Add( wrapper!.compiler_hints.category_attribute_names, "UnderlyingRing" )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    wrapper!.compiler_hints.source_and_range_attributes_from_morphism_attribute := rec(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        object_attribute_name := "RankOfObject",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        morphism_attribute_name := "UnderlyingMatrix",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        source_attribute_getter_name := "NrColumns",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        range_attribute_getter_name := "NrRows",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    return wrapper@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">end""", "@", ";" ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">given_arguments := [ QQ ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_category_name := "WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">package_name := "WrapperCategories";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">operations := "primitive";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CapJitPrecompileCategoryAndCompareResult(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    category_constructor,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    given_arguments,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    package_name,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    compiled_category_name :</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    operations := operations</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackage(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    "WrapperCategories",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    "gap/precompiled_categories/WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled.gi"</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled( QQ );</span>
+Columns( Q )
+</pre></div>
+
+
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
 
 
