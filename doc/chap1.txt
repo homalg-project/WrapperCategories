@@ -132,9 +132,9 @@
     [4X[25X>[125X [27Xcategory_constructor := EvalString( ReplacedString( """function( field )[127X[104X
     [4X[25X>[125X [27X  local matrix_category, op, object_constructor, object_datum, morphism_constructor, morphism_datum, wrapper@[127X[104X
     [4X[25X>[125X [27X    [127X[104X
-    [4X[25X>[125X [27X    matrix_category := CategoryOfRows( field : FinalizeCategory := true, enable_compilation := false )@[127X[104X
+    [4X[25X>[125X [27X    matrix_category := CategoryOfRows( field : FinalizeCategory := true )@[127X[104X
     [4X[25X>[125X [27X    [127X[104X
-    [4X[25X>[125X [27X    op := Opposite( matrix_category : FinalizeCategory := true, enable_compilation := false, only_primitive_operations := true )@[127X[104X
+    [4X[25X>[125X [27X    op := Opposite( matrix_category : FinalizeCategory := true, only_primitive_operations := true )@[127X[104X
     [4X[25X>[125X [27X    [127X[104X
     [4X[25X>[125X [27X    ##[127X[104X
     [4X[25X>[125X [27X    object_constructor := function( cat, underlying_object )[127X[104X

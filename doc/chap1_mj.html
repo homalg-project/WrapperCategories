@@ -179,9 +179,9 @@ true
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">category_constructor := EvalString( ReplacedString( """function( field )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">  local matrix_category, op, object_constructor, object_datum, morphism_constructor, morphism_datum, wrapper@</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    matrix_category := CategoryOfRows( field : FinalizeCategory := true, enable_compilation := false )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    matrix_category := CategoryOfRows( field : FinalizeCategory := true )@</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    op := Opposite( matrix_category : FinalizeCategory := true, enable_compilation := false, only_primitive_operations := true )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    op := Opposite( matrix_category : FinalizeCategory := true, only_primitive_operations := true )@</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    ##</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    object_constructor := function( cat, underlying_object )</span>
