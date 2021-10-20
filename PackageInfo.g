@@ -10,9 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "WrapperCategories",
 Subtitle := "Construct an equivalent wrapper category out of a CAP category",
-Version := "2021.10-05",
-Date := "15/10/2021",
-Date := "15/10/2021",
+Version := "2021.10-06",
+Date := "20/10/2021",
+Date := "20/10/2021",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -72,7 +72,7 @@ Dependencies := rec(
   NeededOtherPackages := [
                    [ "GAPDoc", ">= 1.5" ],
                    [ "ToolsForHomalg", ">= 2020.09.06" ],
-                   [ "CAP", ">= 2021.08-03" ],
+                   [ "CAP", ">= 2021.10-04" ],
                    [ "CompilerForCAP", ">= 2021.10-03" ],
                    [ "MonoidalCategories", ">= 2020.03.01" ],
                    [ "CategoryConstructor", ">= 2021.10-01" ],
