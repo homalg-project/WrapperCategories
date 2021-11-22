@@ -33,62 +33,68 @@
   [33X[0;0YThe [5XGAP[105X category of morphisms in a wrapper CAP category.[133X
   
   
-  [1X2.2 [33X[0;0YGlobal variables[133X[101X
+  [1X2.2 [33X[0;0YAttributes[133X[101X
   
-  [1X2.2-1 RECORD_OF_COMPACT_NAMES_OF_CATEGORICAL_OPERATIONS[101X
+  [1X2.2-1 UnderlyingCategory[101X
   
-  [33X[1;0Y[29X[2XRECORD_OF_COMPACT_NAMES_OF_CATEGORICAL_OPERATIONS[102X [32X global variable[133X
+  [33X[1;0Y[29X[2XUnderlyingCategory[102X( [3Xcategory[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Ya category[133X
   
-  
-  [1X2.3 [33X[0;0YAttributes[133X[101X
-  
-  [1X2.3-1 UnderlyingCategory[101X
-  
-  [33X[1;0Y[29X[2XUnderlyingCategory[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X2.3-2 GenesisOfCellOperation[101X
-  
-  [33X[1;0Y[29X[2XGenesisOfCellOperation[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X2.3-3 GenesisOfCellArguments[101X
-  
-  [33X[1;0Y[29X[2XGenesisOfCellArguments[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X2.3-4 ListOfEvaluationNodes[101X
-  
-  [33X[1;0Y[29X[2XListOfEvaluationNodes[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X2.3-5 DigraphOfEvaluation[101X
-  
-  [33X[1;0Y[29X[2XDigraphOfEvaluation[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X2.3-6 EvaluatedCell[101X
-  
-  [33X[1;0Y[29X[2XEvaluatedCell[102X( [3Xarg[103X ) [32X attribute[133X
+  [33X[0;0YThe category underlying the wrapper category [3Xcategory[103X.[133X
   
   
-  [1X2.4 [33X[0;0YConstructors[133X[101X
+  [1X2.3 [33X[0;0YConstructors[133X[101X
   
-  [1X2.4-1 \/[101X
+  [1X2.3-1 AsObjectInWrapperCategory[101X
   
-  [33X[1;0Y[29X[2X\/[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAsObjectInWrapperCategory[102X( [3Xcategory[103X, [3Xobject[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan object[133X
   
-  [1X2.4-2 WrapperCategory[101X
+  [33X[0;0YWrap  an  object  [3Xobject[103X  (in  the  category underlying the wrapper category
+  [3Xcategory[103X) to form an object in [3Xcategory[103X.[133X
   
-  [33X[1;0Y[29X[2XWrapperCategory[102X( [3Xarg[103X ) [32X operation[133X
+  [1X2.3-2 AsMorphismInWrapperCategory[101X
   
+  [33X[1;0Y[29X[2XAsMorphismInWrapperCategory[102X( [3Xsource[103X, [3Xmorphism[103X, [3Xrange[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism[133X
   
-  [1X2.5 [33X[0;0YOperations[133X[101X
+  [33X[0;0YWrap  a  morphism  [3Xmorphism[103X (in the category underlying the wrapper category
+  [10XCapCategory([110X[3Xsource[103X[10X)[110X)  to  form  a morphism in [10XCapCategory([110X[3Xsource[103X[10X)[110X with given
+  source and range.[133X
   
-  [1X2.5-1 SetLabel[101X
+  [1X2.3-3 AsMorphismInWrapperCategory[101X
   
-  [33X[1;0Y[29X[2XSetLabel[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAsMorphismInWrapperCategory[102X( [3Xcategory[103X, [3Xmorphism[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism[133X
   
-  [1X2.5-2 IsEqualForCells[101X
+  [33X[0;0YWrap  a  morphism  [3Xmorphism[103X (in the category underlying the wrapper category
+  [3Xcategory[103X) to form a morphism in [3Xcategory[103X.[133X
   
-  [33X[1;0Y[29X[2XIsEqualForCells[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
+  [1X2.3-4 \/[101X
   
-  [1X2.5-3 Visualize[101X
+  [33X[1;0Y[29X[2X\/[102X( [3Xcell[103X, [3Xcategory[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XVisualize[102X( [3Xarg[103X ) [32X operation[133X
+  [33X[0;0YConvenience     method    for    [2XAsObjectInWrapperCategory[102X    ([14X2.3-1[114X)    and
+  [2XAsMorphismInWrapperCategory[102X ([14X2.3-3[114X).[133X
+  
+  [1X2.3-5 WrapperCategory[101X
+  
+  [33X[1;0Y[29X[2XWrapperCategory[102X( [3Xcategory[103X, [3Xoptions[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya category[133X
+  
+  [33X[0;0YWraps  a  category  [3Xcategory[103X  to  form a new category subject to the options
+  given via [3Xoptions[103X, which is a record with the following keys:[133X
+  
+  [30X    [33X[0;6Y[10Xname[110X (optional): the name of the wrapper category[133X
+  
+  [30X    [33X[0;6Y[10Xonly_primitive_operations[110X  (optional,  default [10Xfalse[110X): whether to only
+        wrap primitive operations or all operations[133X
+  
+  [30X    [33X[0;6Y[10Xwrap_range_of_hom_structure[110X (optional, default [10Xfalse[110X): whether to wrap
+        the range category of the homomorphism structure[133X
+  
+  [33X[0;0YAdditionally,     the     following     options    of    [2XCategoryConstructor[102X
+  ([14XCategoryConstructor,   for  IsRecord???[114X)  are  supported:  [10Xcategory_filter[110X,
+  [10Xcategory_object_filter[110X,     [10Xcategory_morphism_filter[110X,    [10Xobject_constructor[110X,
+  [10Xobject_datum[110X, [10Xmorphism_constructor[110X, [10Xmorphism_datum[110X.[133X
   

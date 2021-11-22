@@ -31,7 +31,7 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XQmat := MatrixCategory( Q );[127X[104X
     [4X[28XCategory of matrices over Q[128X[104X
-    [4X[25Xgap>[125X [27XWrapper := WrapperCategory( Qmat );[127X[104X
+    [4X[25Xgap>[125X [27XWrapper := WrapperCategory( Qmat, rec( ) );[127X[104X
     [4X[28XWrapperCategory( Category of matrices over Q )[128X[104X
     [4X[25Xgap>[125X [27Xa := a / Wrapper;[127X[104X
     [4X[28X<A morphism in WrapperCategory( Category of matrices over Q )>[128X[104X
@@ -96,7 +96,7 @@
     [4X[28XQ[128X[104X
     [4X[25Xgap>[125X [27XQmat := MatrixCategory( Q );[127X[104X
     [4X[28XCategory of matrices over Q[128X[104X
-    [4X[25Xgap>[125X [27XWrapper := WrapperCategory( Qmat );[127X[104X
+    [4X[25Xgap>[125X [27XWrapper := WrapperCategory( Qmat, rec( ) );[127X[104X
     [4X[28XWrapperCategory( Category of matrices over Q )[128X[104X
     [4X[25Xgap>[125X [27Xmor := ZeroMorphism( ZeroObject( Wrapper ), ZeroObject( Wrapper ) );;[127X[104X
     [4X[25Xgap>[125X [27X2 * mor;;[127X[104X
@@ -109,7 +109,7 @@
     [4X[25Xgap>[125X [27Xbeta := InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism( Source( mor ), Range( mor ), iota );;[127X[104X
     [4X[25Xgap>[125X [27XIsCongruentForMorphisms( mor, beta );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XWrapper2 := WrapperCategory( Qmat : wrap_range_of_hom_structure := false );[127X[104X
+    [4X[25Xgap>[125X [27XWrapper2 := WrapperCategory( Qmat, rec( wrap_range_of_hom_structure := true ) );[127X[104X
     [4X[28XWrapperCategory( Category of matrices over Q )[128X[104X
     [4X[25Xgap>[125X [27Xmor := ZeroMorphism( ZeroObject( Wrapper2 ), ZeroObject( Wrapper2 ) );;[127X[104X
     [4X[25Xgap>[125X [27XDistinguishedObjectOfHomomorphismStructure( Wrapper2 );;[127X[104X
@@ -190,15 +190,14 @@
     [4X[25X>[125X [27X        [127X[104X
     [4X[25X>[125X [27X    end@[127X[104X
     [4X[25X>[125X [27X    [127X[104X
-    [4X[25X>[125X [27X    wrapper := WrapperCategory( op :[127X[104X
+    [4X[25X>[125X [27X    wrapper := WrapperCategory( op, rec([127X[104X
     [4X[25X>[125X [27X        name := "Columns( Q )",[127X[104X
-    [4X[25X>[125X [27X        primitive_operations := true,[127X[104X
-    [4X[25X>[125X [27X        wrap_range_of_hom_structure := false,[127X[104X
     [4X[25X>[125X [27X        object_constructor := object_constructor,[127X[104X
     [4X[25X>[125X [27X        object_datum := object_datum,[127X[104X
     [4X[25X>[125X [27X        morphism_constructor := morphism_constructor,[127X[104X
-    [4X[25X>[125X [27X        morphism_datum := morphism_datum[127X[104X
-    [4X[25X>[125X [27X    )@[127X[104X
+    [4X[25X>[125X [27X        morphism_datum := morphism_datum,[127X[104X
+    [4X[25X>[125X [27X        only_primitive_operations := true,[127X[104X
+    [4X[25X>[125X [27X    ) )@[127X[104X
     [4X[25X>[125X [27X    [127X[104X
     [4X[25X>[125X [27X    SetUnderlyingRing( wrapper, field )@[127X[104X
     [4X[25X>[125X [27X    [127X[104X
@@ -225,6 +224,10 @@
     [4X[25X>[125X [27X    compiled_category_name :[127X[104X
     [4X[25X>[125X [27X    operations := operations[127X[104X
     [4X[25X>[125X [27X);[127X[104X
+    [4X[28XWARNING: Could not resolve all CAP operations while precompiling HomomorphismS\[128X[104X
+    [4X[28XtructureOnMorphismsWithGivenObjects.[128X[104X
+    [4X[28XWARNING: Could not resolve all CAP operations while precompiling InterpretMorp\[128X[104X
+    [4X[28XhismFromDistinguishedObjectToHomomorphismStructureAsMorphism.[128X[104X
     [4X[25Xgap>[125X [27XReadPackage([127X[104X
     [4X[25X>[125X [27X    "WrapperCategories",[127X[104X
     [4X[25X>[125X [27X    "gap/precompiled_categories/WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled.gi"[127X[104X

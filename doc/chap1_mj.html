@@ -74,7 +74,7 @@ false
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Qmat := MatrixCategory( Q );</span>
 Category of matrices over Q
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper := WrapperCategory( Qmat );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper := WrapperCategory( Qmat, rec( ) );</span>
 WrapperCategory( Category of matrices over Q )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := a / Wrapper;</span>
 &lt;A morphism in WrapperCategory( Category of matrices over Q )&gt;
@@ -142,7 +142,7 @@ true
 Q
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Qmat := MatrixCategory( Q );</span>
 Category of matrices over Q
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper := WrapperCategory( Qmat );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper := WrapperCategory( Qmat, rec( ) );</span>
 WrapperCategory( Category of matrices over Q )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor := ZeroMorphism( ZeroObject( Wrapper ), ZeroObject( Wrapper ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">2 * mor;;</span>
@@ -155,7 +155,7 @@ WrapperCategory( Category of matrices over Q )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">beta := InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism( Source( mor ), Range( mor ), iota );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCongruentForMorphisms( mor, beta );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper2 := WrapperCategory( Qmat : wrap_range_of_hom_structure := false );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wrapper2 := WrapperCategory( Qmat, rec( wrap_range_of_hom_structure := true ) );</span>
 WrapperCategory( Category of matrices over Q )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor := ZeroMorphism( ZeroObject( Wrapper2 ), ZeroObject( Wrapper2 ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistinguishedObjectOfHomomorphismStructure( Wrapper2 );;</span>
@@ -237,15 +237,14 @@ true
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        </span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    end@</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    wrapper := WrapperCategory( op :</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    wrapper := WrapperCategory( op, rec(</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        name := "Columns( Q )",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        primitive_operations := true,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        wrap_range_of_hom_structure := false,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        object_constructor := object_constructor,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        object_datum := object_datum,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        morphism_constructor := morphism_constructor,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        morphism_datum := morphism_datum</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    )@</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        morphism_datum := morphism_datum,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        only_primitive_operations := true,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ) )@</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    SetUnderlyingRing( wrapper, field )@</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    </span>
@@ -272,6 +271,10 @@ true
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    compiled_category_name :</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    operations := operations</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);</span>
+WARNING: Could not resolve all CAP operations while precompiling HomomorphismS\
+tructureOnMorphismsWithGivenObjects.
+WARNING: Could not resolve all CAP operations while precompiling InterpretMorp\
+hismFromDistinguishedObjectToHomomorphismStructureAsMorphism.
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackage(</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    "WrapperCategories",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    "gap/precompiled_categories/WrapperOfOppositeOfCategoryOfRowsOfFieldPrecompiled.gi"</span>
